@@ -1,0 +1,51 @@
+import React from "react"
+import Grid from "@material-ui/core/Grid"
+import {
+  Paper,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemLink
+} from "@material-ui/core"
+
+// import { Hidden } from "@material-ui/core"
+const styles = {
+  Paper: { padding: 20, marginTop: 10, maginBottum: 10 }
+}
+export default ({ exercises }) => (
+  <Grid container>
+    <Grid item xs sm>
+      <Paper style={styles.Paper}>
+        {exercises.map(([group, exercise]) => {
+          return (
+            <>
+              <Typography
+                variant="headline"
+                style={{
+                  textTransform: "capitalize"
+                }}
+              >
+                {group}
+              </Typography>
+              <List component="ul">
+                {exercise.map(({ title }) => (
+                  <ListItem button>
+                    <ListItemText
+                      disableTypography
+                      primary={<Typography variant="body">{title}</Typography>}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            </>
+          )
+        })}
+      </Paper>
+    </Grid>
+
+    <Grid item xs sm>
+      <Paper style={styles.Paper}> Right Pane </Paper>
+    </Grid>
+  </Grid>
+)
