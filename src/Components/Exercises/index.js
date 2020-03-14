@@ -49,7 +49,19 @@ export default ({ exercises, muscleIndex, muscles }) => (
     </Grid>
 
     <Grid item xs sm>
-      <Paper style={styles.Paper}> Right Pane </Paper>
+      <Paper style={styles.Paper}> 
+      <Typography
+         variant = "h5"
+         style = {{margin:20}}
+      >
+        wellcome!
+      </Typography>
+      <Typography
+         variant = "subtitle1"
+      >
+        please select an exercise from the list on the left.
+      </Typography>
+       </Paper>
     </Grid>
   </Grid>
 )
