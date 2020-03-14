@@ -13,11 +13,15 @@ import {
 const styles = {
   Paper: { padding: 20, marginTop: 10, maginBottum: 10 }
 }
-export default ({ exercises }) => (
+export default ({ exercises, muscleIndex, muscles }) => (
   <Grid container>
     <Grid item xs sm>
       <Paper style={styles.Paper}>
-        {exercises.map(([group, exercise]) => {
+        {exercises.filter(([group, ex])=>{
+          debugger
+          if(muscleIndex === 0) return true;
+          return muscles[muscleIndex-1] === group ;
+        }).map(([group, exercise]) => {
           return (
             <>
               <Typography

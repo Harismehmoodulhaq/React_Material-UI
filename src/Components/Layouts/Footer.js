@@ -3,17 +3,18 @@ import Paper from "@material-ui/core/Paper"
 import Tabs from "@material-ui/core/Tabs"
 import Tab from "@material-ui/core/Tab"
 
-export default ({ muscles }) => (
+export default ({ muscles, onSelect, muscleIndex}) => (
   <Paper>
     <Tabs
-      value={0}
+      value={muscleIndex}
       indicatorColor="primary"
       textColor="primary"
       centered={true}
+      onChange={onSelect}
     >
       <Tab label="All" />
-      {muscles.map(group => (
-        <Tab label={group} />
+      {muscles.map(el => (
+        <Tab label={el} />
       ))}
     </Tabs>
   </Paper>

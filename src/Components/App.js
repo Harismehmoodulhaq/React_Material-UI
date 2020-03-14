@@ -14,7 +14,8 @@ import { muscles, exercises } from "../store.js"
 
 export default class extends Component {
   state = {
-    exercises
+    exercises,
+    muscleIndex:0
   }
 
   getExercisesByMuscles() {
@@ -31,15 +32,18 @@ export default class extends Component {
     )
   }
   // props;
-
+  onSelect = (event, index) => {
+    debugger;
+    this.setState({muscleIndex: index})
+  }
   render() {
     const exercises = this.getExercisesByMuscles()
     return (
       <Fragment>
         <Header />
-        <Exercises exercises={exercises} />
-        <Footer muscles={muscles} />
+        <Exercises exercises={exercises} muscleIndex={this.state.muscleIndex} muscles={muscles}/>
+        <Footer muscles={muscles} onSelect={this.onSelect} muscleIndex={this.state.muscleIndex}/>
       </Fragment>
     )
   }
-}
+}       
